@@ -22,11 +22,11 @@
  * SOFTWARE.
  */
 
+;
 (function (window, angular) {
   'use strict';
 
   var isArray = angular.isArray;
-  var isObject = angular.isObject;
   var extend = angular.extend;
   var isString = angular.isString;
   var isObject = angular.isObject;
@@ -42,7 +42,10 @@
      *
      */
     function $eventSource(url, options) {
-      options = options || {};
+      if (arguments.length < 1) {
+        throw $eventSourceMinErr("make sure init with source listen url");
+      }
+      this.options = options || {};
       this.url = url;
       this.onErrorListeners = [];
       this.onMessageListeners = [];
@@ -52,20 +55,9 @@
 
 
     $eventSource.prototype = {
-      /**
-       * [EventSource] (https://developer.mozilla.org/en-US/docs/Web/API/EventSource#Constants)
-       * @type {{CONNECTING: number, OPEN: number, CLOSED: number}}
-       * @private
-       */
-      _readyStateConstants: {
-        CONNECTING: 0,
-        OPEN: 1,
-        CLOSED: 2
-      },
-
       $$new: function () {
-        if (!this.eventSource || this.eventSource.readyState !== this._readyStateConstants.OPEN) {
-          this.eventSource = $$eventSourceBackend.newEventSource(this.url);
+        if (!this.eventSource || this.eventSource.readyState !== this.eventSource.OPEN) {
+          this.eventSource = $$eventSourceBackend.newEventSource(this.url, this.options);
           $log.info('New EventSource created! Publish url:' + this.url);
           this.eventSource.onopen = this._onOpen.bind(this);
           this.eventSource.onerror = this._onError.bind(this);
