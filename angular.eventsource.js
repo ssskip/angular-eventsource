@@ -119,13 +119,12 @@
      * The second specifies the settings, if any, in the form of an EventSourceInit dictionary.
      *
      *  @param url
-     * @param option
+     * @param options
      * @returns {Raw EventSource object}
      */
-    this.newEventSource = function (url, option) {
-      var withCredentials = !!option.withCredentials;
+    this.newEventSource = function (url, options) {
       if (this.isEventSource) {
-        return this.EventSource(url, withCredentials);
+        return this.EventSource(url, options);
       }
     }
   }
@@ -144,14 +143,13 @@
    * @constructor
    */
   function Message(msg) {
-    //if (isString(msg)) {
-    //  msg = fromJson(msg);
-    //}
+    if (isString(msg)) {
+      msg = fromJson(msg);
+    }
     var message = {
       event: '',
       data: '',
-      id: '',
-      retry: '-1'
+      id: ''
     }
     return extend(message, msg);
   }
