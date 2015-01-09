@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>angular.eventsource example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="../angular.eventsource.js"></script>
+    <script>
+        angular.module('app', ['ngEventSource'])
+                .controller('ApplicationCtrl', function ($scope, $eventSource) {
+                    $eventSource
+                })
+    </script>
+</head>
+<body ng-app="app">
+</body>
+</html>

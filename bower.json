@@ -1,0 +1,26 @@
+{
+  "name": "angular-eventsource",
+  "version": "0.1",
+  "authors": [
+    "skip"
+  ],
+  "description": "An angular.js eventSource service.",
+  "main": "angular-eventsource.min.js",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "notification",
+    "eventsource",
+    "sse",
+    "angular-eventsource",
+    "ngEventSource"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

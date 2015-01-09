@@ -1,0 +1,41 @@
+{
+  "name": "angular-eventsource",
+  "version": "0.0.1",
+  "main": "angular-eventsource.min.js",
+  "description": "An angular.js event source service.",
+  "homepage": "https://github.com/ssskip/angular-eventsource",
+  "bugs": "https://github.com/ssskip/angular-eventsource/issues",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "notification",
+    "eventsource",
+    "sse",
+    "angular-eventsource",
+    "ngEventSource"
+  ],
+  "author": {
+    "name": "skip",
+    "url": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ssskip/angular-eventsource.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "angular": "*"
+  },
+  "devDependencies": {
+    "karma": "~0.10",
+    "karma-junit-reporter": "~0.1.0",
+    "gulp": "~3.8.10",
+    "gulp-util": "~2.2.14",
+    "gulp-uglify": "~0.2.1",
+    "gulp-rename": "~1.2.0"
+  }
+}
