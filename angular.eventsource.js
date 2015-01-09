@@ -100,7 +100,7 @@
       /**
        * register listener on message come in
        * @param listener
-       * @returns {$EventSource}
+       * @returns {$eventSource}
        */
       onMessage: function (listener) {
         this.onMessageListeners.push(listener);
