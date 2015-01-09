@@ -1,6 +1,5 @@
 'use strict';
-describe('EventSource', function () {
-  it('ensure something', function () {
-    //expect(1 + 1).toEqual(2);
+describe('angular-eventsoure', function () {
+  it('$$eventSourceBackend', function () {
   })
 })
