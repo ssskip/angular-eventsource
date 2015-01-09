@@ -28,6 +28,9 @@
   var isArray = angular.isArray;
   var isObject = angular.isObject;
   var extend = angular.extend;
+  var isString = angular.isString;
+  var isObject = angular.isObject;
+  var fromJson = angular.fromJson;
   var $eventSourceMinErr = angular.$$minErr('$eventSource');
 
   $eventSourceProvider.$inject = ["$rootScope", '$q', '$timeout', '$$eventSourceBackend', '$log'];
@@ -111,9 +114,18 @@
    * [EventSource W3C Specification](http://www.w3.org/TR/eventsource/)
    */
   function $$eventSourceBackend() {
+    /**
+     * The EventSource() constructor takes one or two arguments. The first specifies the URL to which to connect.
+     * The second specifies the settings, if any, in the form of an EventSourceInit dictionary.
+     *
+     *  @param url
+     * @param option
+     * @returns {*}
+     */
     this.newEventSource = function (url, option) {
+      var withCredentials = !!option.withCredentials;
       if (this.isEventSource) {
-        return this.EventSource(url);
+        return this.EventSource(url, withCredentials);
       }
     }
   }
@@ -132,9 +144,14 @@
    * @constructor
    */
   function Message(msg) {
+    //if (isString(msg)) {
+    //  msg = fromJson(msg);
+    //}
     var message = {
-      kind: '',
-      channel: ''
+      event: '',
+      data: '',
+      id: '',
+      retry: '-1'
     }
     return extend(message, msg);
   }
