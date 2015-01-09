@@ -120,7 +120,7 @@
      *
      *  @param url
      * @param option
-     * @returns {*}
+     * @returns {Raw EventSource object}
      */
     this.newEventSource = function (url, option) {
       var withCredentials = !!option.withCredentials;
